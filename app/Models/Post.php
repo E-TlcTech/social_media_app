@@ -10,4 +10,15 @@ class Post extends Model
 {
     use HasFactory;
     //
+    public function user()
+{
+    return $this->belongsTo(User::class);
+}
+// nom au pluriel car un message peut regrouper plusieurs commentaires
+// cardinalité 0,n
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
 }
